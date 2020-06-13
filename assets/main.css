@@ -93,7 +93,6 @@ pre {
     margin: 0px;
     font-size: 1rem;
     font-weight: normal;
-    color: gray;
 }
 
 .post-detail-title {
@@ -102,7 +101,6 @@ pre {
 }
 
 .post-published {
-    color: gray;
     margin-bottom: 64px;
 }
 

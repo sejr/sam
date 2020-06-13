@@ -8,6 +8,7 @@ import Layout from '@/components/Layout';
 import CodeBlock from '@/components/CodeBlock';
 import Head from 'next/head';
 import { format } from 'date-fns';
+import { description } from '@/pages';
 
 export async function getStaticProps({ params }: any) {
     const { year, month, day, slug } = params;
@@ -70,7 +71,7 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
     const title = `${post.title} | Samuel Roth`;
 
     return (
-        <Layout title={title}>
+        <Layout title={title} description={description}>
             <Head>
                 <link
                     href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&display=swap"

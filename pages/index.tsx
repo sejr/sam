@@ -37,18 +37,16 @@ export function getStaticProps() {
     };
 }
 
+export const description =
+    'Samuel Roth is a software engineer in New York City, primarily interested in programming languages, web security, and start-ups.';
+
 interface IndexProps {
     posts: Post[];
 }
 
 const IndexPage: NextPage<IndexProps> = ({ posts }) => (
-    <Layout title="Samuel Roth | sam.dev">
-        <p>
-            I am a software engineer in New York City, primarily interested in
-            programming languages, web security, and start-ups. This website
-            hosts my writings about those and other topics.
-        </p>
-
+    <Layout title="Samuel Roth | sam.dev" description={description}>
+        <p>{description}</p>
         <div className="post-list">
             {posts.map((post) => (
                 <PostListItem key={post.slug} post={post} />

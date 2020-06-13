@@ -6,6 +6,7 @@ import Layout from '@/components/Layout';
 import PostListItem from '@/components/PostListItem';
 import { Post } from '@/models/Post';
 import { format } from 'date-fns';
+import { description } from '@/pages';
 
 export function getStaticProps({ params }: any) {
     const { year, month } = params;
@@ -71,7 +72,7 @@ interface IndexProps {
 }
 
 const IndexPage: NextPage<IndexProps> = ({ year, month, posts }) => (
-    <Layout title="Samuel Roth | sam.dev">
+    <Layout title="Samuel Roth | sam.dev" description={description}>
         <h1>
             {format(new Date(parseInt(year), parseInt(month)), 'MMMM yyyy')}
         </h1>

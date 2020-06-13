@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import Layout from '@/components/Layout';
 import PostListItem from '@/components/PostListItem';
 import { Post } from '@/models/Post';
+import { description } from '..';
 
 export function getStaticProps({ params }: any) {
     const { year } = params;
@@ -66,7 +67,7 @@ interface IndexProps {
 }
 
 const IndexPage: NextPage<IndexProps> = ({ year, posts }) => (
-    <Layout title="Samuel Roth | sam.dev">
+    <Layout title="Samuel Roth | sam.dev" description={description}>
         <h1>{year}</h1>
 
         <div className="post-list">
