@@ -44,12 +44,9 @@ interface IndexProps {
 const IndexPage: NextPage<IndexProps> = ({ posts }) => (
     <Layout title="Samuel Roth | sam.dev">
         <p>
-            My name is Sam and I'm a software engineer currently working at{' '}
-            <a href="https://bloomberg.com" target="_blank">
-                Bloomberg
-            </a>{' '}
-            in New York City. Primarily interested in programming languages, web
-            security, and start-ups. Thoughts my own.
+            I am a software engineer in New York City, primarily interested in
+            programming languages, web security, and start-ups. This website
+            hosts my writings about those and other topics.
         </p>
 
         <div className="post-list">

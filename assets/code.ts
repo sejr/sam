@@ -43,7 +43,7 @@ export default {
         color: '#c92c2c',
     },
     tag: {
-        color: '#c92c2c',
+        color: 'blue',
     },
     boolean: {
         color: '#c92c2c',
@@ -55,16 +55,16 @@ export default {
         color: 'blue',
     },
     constant: {
-        color: '#c92c2c',
+        color: 'blue',
     },
     symbol: {
-        color: '#c92c2c',
+        color: 'blue',
     },
     deleted: {
         color: '#c92c2c',
     },
     selector: {
-        color: '#2f9c0a',
+        color: 'green',
     },
     'attr-name': {
         color: '#2f9c0a',
@@ -83,30 +83,17 @@ export default {
         color: 'red',
     },
     operator: {
-        color: '#a67f59',
-        background: 'rgba(255, 255, 255, 0.5)',
-    },
-    entity: {
-        color: '#a67f59',
-        background: 'rgba(255, 255, 255, 0.5)',
-        cursor: 'help',
+        color: 'gray',
     },
     url: {
-        color: '#a67f59',
-        background: 'rgba(255, 255, 255, 0.5)',
+        color: 'blue',
     },
     variable: {
         color: 'red',
-        background: 'rgba(255, 255, 255, 0.5)',
-    },
-    atrule: {
-        color: '#1990b8',
-    },
-    'attr-value': {
-        color: '#1990b8',
     },
     keyword: {
         color: 'blue',
+        fontWeight: 'bold',
     },
     'class-name': {
         color: 'red',
