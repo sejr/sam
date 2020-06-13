@@ -2,8 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import React from 'react';
 import matter from 'gray-matter';
+import ReactMarkdown from 'react-markdown';
 import { Post } from '@/models/Post';
 import Layout from '@/components/Layout';
+import CodeBlock from '@/components/CodeBlock';
+import Head from 'next/head';
 
 export async function getStaticProps({ params }: any) {
     const { year, month, day, slug } = params;
@@ -52,8 +55,6 @@ export async function getStaticPaths() {
             };
         });
 
-    console.log(paths);
-
     return {
         paths,
         fallback: false,
@@ -69,7 +70,18 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
 
     return (
         <Layout title={title}>
+            <Head>
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@400;700&display=swap"
+                    rel="stylesheet"
+                />
+            </Head>
+
             <h1 className="post-detail-title">{post.title}</h1>
+            <ReactMarkdown
+                source={post.content}
+                renderers={{ code: CodeBlock }}
+            />
         </Layout>
     );
 };
