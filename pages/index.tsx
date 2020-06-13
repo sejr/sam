@@ -44,13 +44,12 @@ interface IndexProps {
 const IndexPage: NextPage<IndexProps> = ({ posts }) => (
     <Layout title="Samuel Roth | sam.dev">
         <p>
-            My name is Sam and I'm currently a software engineer currently
-            working at{' '}
+            My name is Sam and I'm a software engineer currently working at{' '}
             <a href="https://bloomberg.com" target="_blank">
                 Bloomberg
             </a>{' '}
-            in NYC. Primarily interested in programming languages, web security,
-            and start-ups. Thoughts shared are my own.
+            in New York City. Primarily interested in programming languages, web
+            security, and start-ups. Thoughts my own.
         </p>
 
         <div className="post-list">

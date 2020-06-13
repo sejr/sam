@@ -69,6 +69,7 @@ pre {
 .post-list-item {
     margin: 16px auto;
     display: flex;
+    flex-direction: column;
     align-items: baseline;
 }
 
@@ -89,13 +90,22 @@ pre {
 
 .post-list-item p.meta {
     margin: 0px;
-    font-size: 1.4rem;
+    font-size: 1rem;
     font-weight: normal;
     color: gray;
 }
 
 .post-detail-title {
     font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.post-published {
+    color: gray;
+    margin-bottom: 64px;
+}
+
+@media (min-width: 600px) {
 }
 
 @media (prefers-color-scheme: dark) {

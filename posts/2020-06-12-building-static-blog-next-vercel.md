@@ -1,6 +1,6 @@
 ---
-title: Hello, world!
-tags: meta, testing
+title: Building a Static Blog with NextJS and Vercel
+tags: meta, javascript
 ---
 
 This is a post.
