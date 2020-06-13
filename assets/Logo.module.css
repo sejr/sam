@@ -1,0 +1,13 @@
+.logo {
+    height: 64px;
+    width: 64px;
+}
+
+.logoLink {
+    color: none;
+}
+
+.logoLink:hover {
+    color: blue;
+    text-decoration: none;
+}

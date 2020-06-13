@@ -1,0 +1,27 @@
+.postListItem {
+    margin: 16px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.postListItem h2 {
+    margin: 0px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    flex: 1;
+}
+
+.new {
+    background: blue;
+    color: white;
+    padding: 0px 5px;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.meta {
+    margin: 0px;
+    font-size: 1rem;
+    font-weight: normal;
+}

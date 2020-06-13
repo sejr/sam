@@ -9,6 +9,7 @@ import CodeBlock from '@/components/CodeBlock';
 import Head from 'next/head';
 import { format } from 'date-fns';
 import { description } from '@/pages';
+import postDetailStyles from '@/assets/PostDetail.module.css';
 
 export async function getStaticProps({ params }: any) {
     const { year, month, day, slug } = params;
@@ -79,8 +80,8 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 />
             </Head>
 
-            <h1 className="post-detail-title">{post.title}</h1>
-            <p className="post-published">
+            <h1 className={postDetailStyles.title}>{post.title}</h1>
+            <p className={postDetailStyles.published}>
                 {format(new Date(post.published), 'PPP')}
             </p>
             <ReactMarkdown

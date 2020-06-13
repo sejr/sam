@@ -5,6 +5,7 @@ import matter from 'gray-matter';
 import Layout from '@/components/Layout';
 import PostListItem from '@/components/PostListItem';
 import { Post } from '@/models/Post';
+import postListStyles from '@/assets/PostList.module.css';
 
 export function getStaticProps() {
     const postsDirectory = path.join(process.cwd(), 'posts');
@@ -47,7 +48,7 @@ interface IndexProps {
 const IndexPage: NextPage<IndexProps> = ({ posts }) => (
     <Layout title="Samuel Roth | sam.dev" description={description}>
         <p>{description}</p>
-        <div className="post-list">
+        <div className={postListStyles.postList}>
             {posts.map((post) => (
                 <PostListItem key={post.slug} post={post} />
             ))}

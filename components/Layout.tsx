@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import layoutStyles from '@/assets/Layout.module.css';
+import logoStyles from '@/assets/Logo.module.css';
 
 interface LayoutProps {
     title: string;
@@ -9,7 +11,7 @@ interface LayoutProps {
 
 export default ({ title, description, children }: LayoutProps) => {
     return (
-        <div className="layout">
+        <div className={layoutStyles.layout}>
             <Head>
                 <title>{title}</title>
                 <meta name="description" content={description}></meta>
@@ -17,9 +19,9 @@ export default ({ title, description, children }: LayoutProps) => {
             </Head>
 
             <Link href="/">
-                <a className="logo-link">
+                <a className={logoStyles.logoLink}>
                     <img
-                        className="logo"
+                        className={logoStyles.logo}
                         src="/images/icon.svg"
                         title="Samuel Roth | sam.dev"
                         alt="sam.dev"

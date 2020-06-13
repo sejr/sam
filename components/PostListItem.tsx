@@ -1,7 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import { format } from 'date-fns';
 import { Post } from '@/models/Post';
-import Link from 'next/link';
+import postListItemStyles from '@/assets/PostListItem.module.css';
 
 interface PostListItemProps {
     post: Post;
@@ -14,14 +15,18 @@ const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
     const as = `/${[prefix, suffix].join('/')}`;
 
     return (
-        <div className="post-list-item">
+        <div className={postListItemStyles.postListItem}>
             <h2>
                 <Link href="/[year]/[month]/[day]/[slug]" as={as}>
                     <a>{post.title}</a>
                 </Link>
-                {post.new && <span className="new">New</span>}
+                {post.new && (
+                    <span className={postListItemStyles.new}>New</span>
+                )}
             </h2>
-            <p className="meta">{format(published, 'PPP')}</p>
+            <p className={postListItemStyles.meta}>
+                {format(published, 'PPP')}
+            </p>
         </div>
     );
 };
