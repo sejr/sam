@@ -1,6 +1,7 @@
 .logo {
     height: 64px;
     width: 64px;
+    background: blue;
 }
 
 .logoLink {
@@ -10,4 +11,10 @@
 .logoLink:hover {
     color: blue;
     text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo {
+        background: #333;
+    }
 }

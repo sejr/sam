@@ -1000,6 +1000,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@danieldietrich/reading-time@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@danieldietrich/reading-time/-/reading-time-0.0.2.tgz#219480d92503f96c90250490205795ae5e24a473"
+  integrity sha512-XJ8WRY0CSm+WN2eXUSxnC5HPnDHZzrp7/b05CQ2ZhxXmjiyqWYditT80g+jCS6Zv4wys9GtVwHKzXVLVQ8pcUg==
+
 "@next/react-dev-overlay@9.4.4":
   version "9.4.4"
   resolved "https://registry.yarnpkg.com/@next/react-dev-overlay/-/react-dev-overlay-9.4.4.tgz#4ae03ac839ff022b3ce5c695bd24b179d4ef459d"

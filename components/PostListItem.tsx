@@ -26,6 +26,7 @@ const PostListItem: React.FC<PostListItemProps> = ({ post }) => {
             </h2>
             <p className={postListItemStyles.meta}>
                 {format(published, 'PPP')}
+                {post.minutes && <span> • {post.minutes} minute read</span>}
             </p>
         </div>
     );

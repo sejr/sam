@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import React from 'react';
-import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { Post } from '@/models/Post';
 import Layout from '@/components/Layout';
@@ -10,33 +9,16 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import { description } from '@/pages';
 import postDetailStyles from '@/assets/PostDetail.module.css';
+import logoStyles from '@/assets/Logo.module.css';
+import { processPost, postPublishedToISOString } from '@/util/post';
+import Link from 'next/link';
 
 export async function getStaticProps({ params }: any) {
     const { year, month, day, slug } = params;
-    const filename = [year, month, day, slug].join('-') + '.md';
-    const postsDirectory = path.join(process.cwd(), 'posts');
-    const filePath = path.join(postsDirectory, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const {
-        data: { title, tags },
-        content,
-        excerpt,
-    } = matter(fileContents);
+    const filename = [year, month, day, slug].join('-');
     return {
         props: {
-            post: {
-                title,
-                tags: tags.split(', '),
-                filename,
-                content,
-                excerpt,
-                slug,
-                published: new Date(
-                    parseInt(year as string),
-                    parseInt(month as string),
-                    parseInt(day as string)
-                ).toISOString(),
-            },
+            post: postPublishedToISOString(processPost(filename)),
         },
     };
 }
@@ -80,13 +62,28 @@ const PostDetail: React.FC<PostDetailProps> = ({ post }) => {
                 />
             </Head>
 
+            <div className={postDetailStyles.logoContainer}>
+                <Link href="/">
+                    <a className={logoStyles.logoLink}>
+                        <img
+                            className={logoStyles.logo}
+                            src="/images/s.svg"
+                            title="Samuel Roth | sam.dev"
+                            alt="sam.dev"
+                        />
+                    </a>
+                </Link>
+            </div>
+
             <h1 className={postDetailStyles.title}>{post.title}</h1>
             <p className={postDetailStyles.published}>
                 {format(new Date(post.published), 'PPP')}
+                {post.minutes && <span> • {post.minutes} minute read</span>}
             </p>
             <ReactMarkdown
                 source={post.content}
                 renderers={{ code: CodeBlock }}
+                linkTarget="_blank"
             />
         </Layout>
     );

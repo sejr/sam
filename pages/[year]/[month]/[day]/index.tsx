@@ -1,39 +1,28 @@
 import fs from 'fs';
 import path from 'path';
 import { NextPage } from 'next';
-import matter from 'gray-matter';
-import Layout from '@/components/Layout';
 import PostListItem from '@/components/PostListItem';
 import { Post } from '@/models/Post';
 import { format } from 'date-fns';
 import { description } from '@/pages';
+import {
+    postsFromFilenames,
+    postsFromYear,
+    postsFromMonth,
+    postPublishedToISOString,
+    postsFromDay,
+} from '@/util/post';
+import Index from '@/components/Index';
 
 export function getStaticProps({ params }: any) {
     const { year, month, day } = params;
     const postsDirectory = path.join(process.cwd(), 'posts');
     const filenames = fs.readdirSync(postsDirectory);
-    const posts = filenames
-        .filter((filename: string) => filename.split('-')[0] === year)
-        .filter((filename: string) => filename.split('-')[1] === month)
-        .map((filename: string) => filename.split('.')[0])
-        .map((filename: string) => {
-            const parts = filename.split('-');
-            const filePath = path.join(postsDirectory, filename + '.md');
-            const fileContents = fs.readFileSync(filePath, 'utf8');
-            const { data, content, excerpt } = matter(fileContents);
-            return {
-                ...data,
-                filename,
-                content,
-                excerpt,
-                slug: parts.join('-'),
-                published: new Date(
-                    parseInt(parts[0]),
-                    parseInt(parts[1]),
-                    parseInt(parts[2])
-                ).toISOString(),
-            };
-        });
+    const posts = postsFromFilenames(filenames)
+        .filter((post) => postsFromYear(post, year))
+        .filter((post) => postsFromMonth(post, month))
+        .filter((post) => postsFromDay(post, day))
+        .map(postPublishedToISOString);
 
     return {
         props: {
@@ -75,10 +64,10 @@ interface IndexProps {
 }
 
 const IndexPage: NextPage<IndexProps> = ({ year, month, day, posts }) => (
-    <Layout title="Samuel Roth | sam.dev" description={description}>
+    <Index title="Samuel Roth | sam.dev" description={description}>
         <h1>
             {format(
-                new Date(parseInt(year), parseInt(month), parseInt(day)),
+                new Date(parseInt(year), parseInt(month) - 1, parseInt(day)),
                 'PPP'
             )}
         </h1>
@@ -88,7 +77,7 @@ const IndexPage: NextPage<IndexProps> = ({ year, month, day, posts }) => (
                 <PostListItem key={post.slug} post={post} />
             ))}
         </div>
-    </Layout>
+    </Index>
 );
 
 export default IndexPage;

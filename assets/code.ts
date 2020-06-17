@@ -77,10 +77,9 @@ export default {
     },
     function: {
         color: 'blue',
-        fontWeight: 'bold',
     },
     builtin: {
-        color: 'red',
+        color: 'blue',
     },
     operator: {
         color: 'gray',

@@ -1,5 +1,5 @@
 .title {
-    font-size: 3rem;
+    font-size: 2rem;
     margin-bottom: 0;
     text-align: center;
 }
@@ -7,4 +7,21 @@
 .published {
     margin-bottom: 64px;
     text-align: center;
+}
+
+.logoContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.logoContainer img {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+@media (min-width: 600px) {
+    .title {
+        font-size: 3rem;
+    }
 }

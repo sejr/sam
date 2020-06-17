@@ -31,16 +31,85 @@ blockquote p {
     margin: 0;
 }
 
-p code {
+p code,
+li code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
     background: #eee;
     padding: 0px 4px;
     border-radius: 4px;
     color: #333;
 }
 
+.caption {
+    font-size: 1rem;
+}
+
 code,
 pre {
-    font-family: 'Overpass Mono', monospace;
+    font-family: 'Source Code Pro', monospace;
+    tab-size: 4;
+}
+
+ol,
+ul {
+    font-size: 1.2rem;
+    line-height: 1.8rem;
+}
+
+hr {
+    margin: 64px 0;
+    border: none;
+    border-top: 4px solid #eee;
+}
+
+.hljs {
+    font-size: 1.1rem;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    background: #f6f6f6;
+    margin: 32px -32px;
+    padding: 32px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+.hljs .comment {
+    color: gray;
+}
+.hljs .keyword {
+    color: blue;
+    font-weight: bold;
+}
+.hljs .function {
+    color: blue;
+}
+.hljs .punctuation {
+    color: gray;
+}
+.hljs .builtin {
+    color: blue;
+}
+.hljs .operator {
+    color: gray;
+}
+.hljs .boolean {
+    color: #c92c2c;
+}
+.hljs .string {
+    color: green;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -56,5 +125,70 @@ pre {
     h6,
     p {
         color: white;
+    }
+
+    blockquote {
+        margin: 32px -32px;
+        padding: 32px 28px;
+        border-left: 4px solid #ff0077;
+        background: #171717;
+    }
+
+    hr {
+        border-top: 4px solid #333;
+    }
+
+    p code,
+    li code,
+    h1 code,
+    h2 code,
+    h3 code,
+    h4 code,
+    h5 code,
+    h6 code {
+        background: #333;
+        padding: 0px 4px;
+        border-radius: 4px;
+        color: #ccc;
+    }
+
+    a {
+        color: #ff0077;
+    }
+
+    ol,
+    ul {
+        color: white;
+    }
+
+    .hljs {
+        background: #171717;
+        color: #bbb;
+    }
+
+    .hljs .comment {
+        color: #666;
+    }
+    .hljs .keyword {
+        color: white;
+        font-weight: bold;
+    }
+    .hljs .function {
+        color: white;
+    }
+    .hljs .punctuation {
+        color: gray;
+    }
+    .hljs .builtin {
+        color: #ff0077;
+    }
+    .hljs .operator {
+        color: gray;
+    }
+    .hljs .boolean {
+        color: #ffff00;
+    }
+    .hljs .string {
+        color: #00ff00;
     }
 }

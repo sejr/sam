@@ -5,6 +5,8 @@ export interface Post {
     filename?: string;
     content?: string;
     excerpt?: string;
-    published: string;
+    published: Date | string;
     new?: boolean;
+    minutes?: number;
+    words?: number;
 }
