@@ -80,7 +80,8 @@ export default {
         fontWeight: 'bold',
     },
     builtin: {
-        color: 'red',
+        color: 'black',
+        fontWeight: 'bold',
     },
     operator: {
         color: 'gray',
@@ -89,14 +90,14 @@ export default {
         color: 'blue',
     },
     variable: {
-        color: 'red',
+        color: 'black',
     },
     keyword: {
         color: 'blue',
         fontWeight: 'bold',
     },
     'class-name': {
-        color: 'red',
+        color: 'black',
     },
     regex: {
         color: '#e90',
